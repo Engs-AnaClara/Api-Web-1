@@ -1,69 +1,94 @@
 <template>
-  <div>
-    <!-- HTML  - você vai construir aqui -->
-     <body> 
-        <header> 
-            <nav> 
-                <li> <a href='/'>Inícios</a>/a></li>
-                <li> <a href='/'>Inícios</a>/a></li>
-                <li> <a href='/'>Inícios</a>/a></li>
-                <li> <a href='/'>Inícios</a>/a></li>
-            </nav>
-        </header>
-     </body>
-  </div>
+  <header>
+    <nav>
+      <a href="/" class="logo">Rick & Morty</a>
+      <ul class="nav-list">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/personagens">Personagens</router-link></li>
+        <li><router-link to="/favoritos">Favoritos</router-link></li>
+        <li><router-link to="/personagem/1">Detalhes dos Personagens</router-link></li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
-<script>
-export default {
-  // VAZIO - você vai adicionar data(), mounted(), etc.
-}
+<script setup>
 </script>
 
-<style>
-*{
-    margin:0;
-    padding:0;
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
 }
 
-a{
-    color:rgb(226, 31, 106);
-    text-decoration: rgb(241, 237, 239);
+header {
+  width: 100%;
 }
-a.logo{
-    font-size:24 px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: #b86397;
+  height: 70px;
+  padding: 0 40px;
 }
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: #b86397;
-    height: 70px;
-    padding: 0 20px;
+
+a.logo {
+  color: white;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .nav-list {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
+  gap: 32px;
 }
 
-.nav-list li{
-    letter-spacing: 3px;
-    margin-left: 32px;
+.nav-list li {
+  letter-spacing: 3px;
 }
-@media (max-width:999px){
-    .nav-list{
-        position: absolute;
-        top: 8px;
-        height: 92px;
-        color:rgb(196, 156, 166);
-        flex-direction:row;
-        align-items: center;
-        justify-content: space-around;
 
-    }
+.nav-list a {
+  color: rgb(253, 234, 241);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.nav-list a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.nav-list a.router-link-active {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 999px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .nav-list li {
+    margin-left: 0;
+  }
 }
 </style>
